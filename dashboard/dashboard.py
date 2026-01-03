@@ -2,6 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
+from pathlib import Path
+
 
 st.set_page_config(page_title="Bike Sharing Dashboard", layout="wide")
 
@@ -17,12 +19,13 @@ sns.set_theme(
 )
 
 @st.cache_data
-def load_data(path: str) -> pd.DataFrame:
+def load_data(path) -> pd.DataFrame:
     df = pd.read_csv(path)
     df["dteday"] = pd.to_datetime(df["dteday"])
     return df
 
-df = load_data("main_data.csv")
+BASE_DIR = Path(__file__).resolve().parent
+df = load_data(BASE_DIR / "main_data.csv")
 
 st.title("Bike Sharing Dashboard")
 st.write("Ringkasan interaktif peminjaman sepeda berdasarkan kondisi cuaca dan tipe hari.")

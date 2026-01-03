@@ -1,157 +1,78 @@
-# Proyek Analisis Data
+# Bike Sharing Dashboard 
 
-**Bike Sharing Dataset**
+**Submission – Belajar Fundamental Analisis Data (Dicoding)**
 
-##  Deskripsi Proyek
-
-Repository ini dibuat sebagai **submission proyek akhir** untuk course **Belajar Fundamental Analisis Data** di Dicoding.
-Proyek ini bertujuan untuk menerapkan seluruh tahapan analisis data, mulai dari **data wrangling**, **exploratory data analysis (EDA)**, **visualisasi**, hingga **pembuatan dashboard interaktif** menggunakan Streamlit.
-
-Dataset yang digunakan adalah **Bike Sharing Dataset**, yang berisi data peminjaman sepeda harian beserta informasi kondisi cuaca dan tipe hari.
+Dashboard ini dibuat sebagai bagian dari **submission proyek akhir** pada course **Belajar Fundamental Analisis Data** di Dicoding.
+Dashboard menyajikan hasil analisis data peminjaman sepeda berdasarkan **kondisi cuaca** dan **tipe hari** secara interaktif menggunakan **Streamlit**.
 
 ---
 
-## Tujuan Proyek
+##  Setup Environment – Anaconda
 
-Tujuan utama dari proyek ini adalah:
-
-* Melakukan proses analisis data secara end-to-end
-* Menjawab pertanyaan bisnis menggunakan data
-* Menyajikan hasil analisis dalam bentuk visualisasi yang informatif
-* Membangun dashboard sederhana yang interaktif dan dapat dijalankan secara lokal
-
----
-
-## Pertanyaan Bisnis
-
-Proyek ini berfokus untuk menjawab dua pertanyaan utama:
-
-1. **Bagaimana perbedaan rata-rata jumlah peminjaman sepeda harian pada setiap kondisi cuaca selama periode pengamatan dataset?**
-2. **Bagaimana perbedaan rata-rata jumlah peminjaman sepeda harian berdasarkan tipe hari (Working Day, Weekend, dan Holiday)?**
-
----
-
-## Struktur Direktori
-
-Struktur repository ini adalah sebagai berikut:
-
-```
-submission
-├── dashboard
-│   ├── main_data.csv
-│   └── dashboard.py
-├── data
-│   ├── data_1.csv
-│   └── data_2.csv
-├── notebook.ipynb
-├── README.md
-├── requirements.txt
-└── url.txt
+```bash
+conda create --name main-ds python=3.9
+conda activate main-ds
+pip install -r requirements.txt
 ```
 
-**Penjelasan:**
+---
 
-* `data/` : Berisi dataset mentah
-* `notebook.ipynb` : Notebook analisis data (data wrangling, EDA, visualisasi, dan insight)
-* `dashboard/` :
+##  Setup Environment – Shell / Terminal
 
-  * `main_data.csv` : Data yang telah diproses dan digunakan untuk dashboard
-  * `dashboard.py` : File aplikasi Streamlit
-* `requirements.txt` : Daftar library yang digunakan
-* `url.txt` : Link dashboard Streamlit Cloud
-* `README.md` : Dokumentasi proyek
+```bash
+mkdir proyek_analisis_data
+cd proyek_analisis_data
+pip install -r requirements.txt
+```
 
 ---
 
-## Tahapan Analisis Data
+##  Run Streamlit App
 
-Proyek ini mencakup tahapan berikut:
+Masuk ke folder `dashboard`, lalu jalankan:
 
-1. **Data Gathering**
-   Mengambil dan memuat data Bike Sharing Dataset.
+```bash
+streamlit run dashboard.py
+```
 
-2. **Data Assessing**
-   Mengecek kualitas data, tipe data, dan kelengkapan data.
+Pastikan file berikut tersedia:
 
-3. **Data Cleaning**
-
-   * Konversi tipe data tanggal
-   * Mapping variabel kategorikal (cuaca dan tipe hari)
-   * Menyiapkan data agar siap dianalisis
-
-4. **Exploratory Data Analysis (EDA)**
-   Menganalisis pola peminjaman sepeda berdasarkan kondisi cuaca dan tipe hari.
-
-5. **Visualization & Explanatory Analysis**
-   Membuat visualisasi untuk menjawab pertanyaan bisnis dan menjelaskan insight yang diperoleh.
-
-6. **Dashboard Development**
-   Membangun dashboard interaktif menggunakan **Streamlit**.
+* `dashboard/dashboard.py`
+* `dashboard/main_data.csv`
+* `requirements.txt`
 
 ---
 
-## Dashboard
+##  Fitur Dashboard
 
-Dashboard dibuat menggunakan **Streamlit** dan menampilkan:
-
-* Rata-rata peminjaman sepeda berdasarkan kondisi cuaca
-* Rata-rata peminjaman sepeda berdasarkan tipe hari
+* Visualisasi rata-rata peminjaman sepeda berdasarkan kondisi cuaca
+* Visualisasi rata-rata peminjaman sepeda berdasarkan tipe hari (Working Day, Weekend, Holiday)
 * Tren peminjaman sepeda dari waktu ke waktu
-* Filter interaktif berdasarkan rentang tanggal, kondisi cuaca, dan tipe hari
+* Filter interaktif:
 
-Dashboard dapat dijalankan secara lokal maupun diakses melalui Streamlit Cloud.
-
----
-
-## Cara Menjalankan Dashboard Secara Lokal
-
-1. Clone repository ini:
-
-   ```bash
-   git clone <url-repository>
-   ```
-
-2. Masuk ke folder dashboard:
-
-   ```bash
-   cd submission/dashboard
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Jalankan aplikasi Streamlit:
-
-   ```bash
-   streamlit run dashboard.py
-   ```
+  * Rentang tanggal
+  * Kondisi cuaca
+  * Tipe hari
 
 ---
 
-## Library yang Digunakan
+##  Insight Utama
 
-* pandas
-* matplotlib
-* seaborn
-* streamlit
-
----
-
-## Kesimpulan Singkat
-
-Hasil analisis menunjukkan bahwa:
-
-* Kondisi cuaca berpengaruh terhadap jumlah peminjaman sepeda, dengan cuaca cerah menghasilkan peminjaman tertinggi.
-* Hari kerja memiliki rata-rata peminjaman sepeda lebih tinggi dibandingkan akhir pekan dan hari libur.
-* Penggunaan sepeda pada hari non-kerja cenderung lebih bervariasi dan dipengaruhi faktor eksternal.
+* Cuaca cerah menghasilkan rata-rata peminjaman sepeda tertinggi.
+* Hari kerja memiliki peminjaman sepeda yang lebih tinggi dan stabil dibandingkan akhir pekan dan hari libur.
+* Peminjaman pada hari non-kerja cenderung lebih bervariasi dan dipengaruhi faktor eksternal.
 
 ---
 
-## Pesan Author:)
+##  Deployment
 
-Proyek ini disusun sebagai bagian dari submission course **Belajar Fundamental Analisis Data – Dicoding**.
+Dashboard ini telah dideploy menggunakan **Streamlit Community Cloud**.
+Link dashboard dapat dilihat pada file `url.txt`.
+
+---
+
+##  Author
+
+Submission proyek untuk course **Belajar Fundamental Analisis Data – Dicoding**.
 
 ---
